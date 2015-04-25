@@ -1,4 +1,4 @@
-# Clustering-Technique-Using-Voronoi-Diagram-
+# Clustering Technique Using Voronoi Diagram
 Implementation for a clustering Technique that uses Voronoi Diagram to enhance the output of KMeans algorithm
 Paper link :
 CTVN: Clustering Technique Using Voronoi Diagram
