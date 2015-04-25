@@ -1,4 +1,4 @@
-function prevVoronoi(X)
+function h =prevVoronoi(X)
 [VX,VY] = voronoi(X(:,1),X(:,2));
 h = plot(VX,VY,'-b',X(:,1),X(:,2),'.r');
 

@@ -16,6 +16,10 @@ for i=1:size(V,1)-1
     filteredCells = cellfun(@(x) find(x(:)==ii),R,'Un',0);
     nonEmptyIdx = find(~cellfun(@isempty,filteredCells));
     D = pdist([C(nonEmptyIdx(1),:);V(ii,:)],'euclidean');
+    
+    %prevVoronoi(C);hold on;
+    %circle(V(ii,1),V(ii,2),D);
+    
     if(D < threshold)
         minSubcluster_id = 1e8;
         for j=1:size(nonEmptyIdx)
@@ -30,10 +34,13 @@ for i=1:size(V,1)-1
         end
         for j=1:size(nonEmptyIdx)
             siteIdx = nonEmptyIdx(j);
-            marked(siteIdx) = minSubcluster_id;
-        end
-        
+            if(marked(siteIdx) ==0)
+                marked(siteIdx) = minSubcluster_id;
+            end
+        end        
     end
+    %hold off;
+    %pause(1);
 end
 seeds = zeros(subcluster_id,2);
 for i=1:subcluster_id
